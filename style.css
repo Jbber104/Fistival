@@ -1,0 +1,329 @@
+/* Basic reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+img { max-width: 100%; display: block; }
+
+:root{
+  --bg: #0f1216;
+  --card: rgba(21,26,32,.82);
+  --text: #e9edf3;
+  --muted: #b6c0cf;
+  --border: rgba(255,255,255,.12);
+  --accent: #ff7f50; /* coral */
+  --link: #9ad0ff;
+}
+
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  min-height: 100vh;
+
+  /* Background multi-color (no animation) */
+  background:
+    radial-gradient(900px 520px at 12% 18%, rgba(255,127,80,.42), transparent 62%),
+    radial-gradient(820px 460px at 88% 22%, rgba(154,208,255,.32), transparent 60%),
+    radial-gradient(980px 560px at 55% 92%, rgba(124,255,199,.22), transparent 62%),
+    linear-gradient(135deg, #111827 0%, #0b1020 45%, #1b2a44 100%);
+}
+
+/* Layout */
+.container{
+  width: min(1020px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.section{ padding: 56px 0; }
+
+.section-alt{
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Skip link */
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: #fff;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.skip-link:focus{ left: 12px; z-index: 999; }
+
+/* Header */
+.site-header{
+  padding: 44px 0 0;
+  border-bottom: 1px solid var(--border);
+
+  background:
+    radial-gradient(1000px 420px at 18% 0%, rgba(255,127,80,.22), transparent 60%),
+    radial-gradient(900px 420px at 82% 10%, rgba(154,208,255,.14), transparent 60%);
+}
+
+.kicker{
+  margin: 0 0 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.festival-title{
+  margin: 0;
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  letter-spacing: .02em;
+  color: var(--accent);
+  text-shadow: 0 0 22px rgba(255,127,80,.18);
+}
+
+.subtitle{
+  margin: 10px 0 16px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* CTA buttons */
+.cta-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0 18px;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: rgba(255,255,255,.03);
+}
+
+.btn-primary{
+  border-color: rgba(255,127,80,.35);
+  background: rgba(255,127,80,.12);
+}
+
+.btn:hover{
+  border-color: rgba(255,255,255,.22);
+  transform: translateY(-1px);
+}
+
+.btn:focus{
+  outline: 2px solid rgba(255,127,80,.7);
+  outline-offset: 2px;
+}
+
+/* Sticky navigation bar */
+.nav-bar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(15,18,22,.72);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+}
+
+.brand{
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: .04em;
+  opacity: .9;
+}
+
+.nav-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-list a{
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text);
+  background: rgba(255,255,255,.03);
+}
+
+.nav-list a:hover{
+  border-color: rgba(255,255,255,.22);
+  transform: translateY(-1px);
+}
+
+.nav-list a:focus{
+  outline: 2px solid rgba(255,127,80,.7);
+  outline-offset: 2px;
+}
+
+/* Typography */
+h2{
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  margin: 0 0 14px;
+}
+
+h3{ margin: 0; font-size: 1.35rem; }
+h4{ margin: 0; font-size: 1.05rem; }
+p{ margin: 12px 0; }
+
+a{ color: var(--link); }
+a:hover{ opacity: .9; }
+
+.small{ color: var(--muted); }
+
+.section-head{
+  display: grid;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+/* Notice */
+.notice{
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+}
+
+/* Days */
+.day{ margin-top: 28px; }
+
+.day-header{
+  margin: 22px 0 14px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--accent);
+  background: rgba(255,255,255,.03);
+  border-radius: 14px;
+}
+
+/* Grid for cards */
+.grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 860px){
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Cards */
+.card{
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.card-header{
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+}
+
+.card-body{
+  padding: 14px 16px 16px;
+}
+
+.meta{
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.registration{
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(255,255,255,.16);
+}
+
+/* Footer */
+.site-footer{
+  border-top: 1px solid var(--border);
+  padding: 22px 0 28px;
+  color: var(--muted);
+}
+
+.footer-inner{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px){
+  .nav-inner{ align-items: flex-start; }
+  .brand{ display: none; } /* اختياري */
+  .nav-list{ gap: 8px; }
+  .nav-list a{ padding: 7px 10px; }
+}
+.grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: stretch;
+}
+
+/* الكرت عمود: header فوق + body يتمدد */
+.card{
+  display: flex;
+  flex-direction: column;
+  height: 380px;            /* <-- غيّر الرقم حسب ذوقك (مثلاً 360/420) */
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  overflow: hidden;         /* مهم حتى ما يطلع شي برا */
+}
+
+/* الهيدر يضل ثابت */
+.card-header{
+  flex: 0 0 auto;
+}
+
+/* الجسم يتمدد ويصير فيه سكرول عند الحاجة */
+.card-body{
+  flex: 1 1 auto;
+  overflow: auto;           /* سكرول داخلي */
+  padding: 14px 16px 16px;
+}
+
+/* سكرول أنعم */
+.card-body{
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* شكل السكرول (اختياري) */
+.card-body::-webkit-scrollbar{ width: 10px; }
+.card-body::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.14);
+  border-radius: 999px;
+  border: 2px solid rgba(0,0,0,.25);
+}
+.card-body::-webkit-scrollbar-track{
+  background: rgba(0,0,0,.15);
+  border-radius: 999px;
+}
