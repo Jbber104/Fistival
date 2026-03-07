@@ -1,268 +1,911 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZUHÖREN. – Drei Tage für die Ohren</title>
-  <meta name="description" content="ZUHÖREN. Drei Tage für die Ohren. Drei Tage für uns. Gratis, mehrsprachig und einfach – Workshops, Exkursionen, Lesungen und Klangerlebnisse in Innsbruck." />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZUHÖREN Festival</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+      color: #111;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #1a63d9;
+    }
+
+    .banner {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      padding: 40px 20px;
+    }
+
+    .shape {
+      position: absolute;
+    }
+
+    .red {
+      background: #e40000;
+      width: 50%;
+      height: 45%;
+      top: 0;
+      left: 0;
+      clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
+    }
+
+    .green {
+      background: #00a000;
+      width: 65%;
+      height: 80%;
+      bottom: 0;
+      left: 0;
+      clip-path: polygon(0 100%, 60% 15%, 100% 90%, 70% 100%);
+    }
+
+    .orange {
+      background: #ff7a00;
+      width: 30%;
+      height: 30%;
+      top: 0;
+      left: 35%;
+      clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+    }
+
+    .purple {
+      background: #8a00a8;
+      width: 35%;
+      height: 70%;
+      top: 15%;
+      left: 45%;
+      clip-path: polygon(30% 0, 100% 60%, 60% 100%, 0 40%);
+    }
+
+    .blue {
+      background: #1a63d9;
+      width: 45%;
+      height: 55%;
+      top: 0;
+      right: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 35% 100%);
+    }
+
+    .yellow {
+      background: #f3b400;
+      width: 40%;
+      height: 80%;
+      bottom: 0;
+      right: 0;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.22);
+      z-index: 1;
+    }
+
+    .banner-text {
+      position: relative;
+      z-index: 2;
+      max-width: 950px;
+      padding: 20px;
+    }
+
+    .banner-text .small {
+      font-size: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .banner-text h1 {
+      font-size: 84px;
+      line-height: 0.95;
+      margin-bottom: 18px;
+      text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.45),
+        0 0 24px rgba(255, 255, 255, 0.20);
+    }
+
+    .banner-text p {
+      font-size: 24px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 28px;
+      background: #111;
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: 0.3s;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-button:hover {
+      background: #1a63d9;
+      transform: translateY(-2px);
+    }
+
+    .content {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 24px;
+    }
+
+    .intro-text {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 20px;
+      text-align: center;
+      color: #222;
+    }
+
+    .intro-text.second {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .program-section {
+      max-width: 1250px;
+      margin: auto;
+      padding: 20px 20px 90px;
+    }
+
+    .program-head {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .program-head h2 {
+      font-size: 46px;
+      margin-bottom: 10px;
+    }
+
+    .day-section {
+      margin-bottom: 70px;
+    }
+
+    .day-title {
+      font-size: 34px;
+      margin-bottom: 25px;
+      padding-left: 14px;
+      border-left: 8px solid #111;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 26px;
+    }
+
+    .event-card {
+      background: white;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
+    }
+
+    .event-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .event-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .event-time {
+      font-weight: 800;
+      font-size: 17px;
+      color: #1a63d9;
+    }
+
+    .event-location {
+      font-size: 14px;
+      color: #777;
+      font-weight: 600;
+    }
+
+    .event-card h3 {
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .event-card p {
+      color: #555;
+      font-size: 16px;
+      flex-grow: 1;
+    }
+
+    .card-button,
+    .back-button {
+      margin-top: auto;
+      align-self: flex-start;
+      background: #111;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-block;
+      letter-spacing: 0.3px;
+    }
+
+    .card-button:hover,
+    .back-button:hover {
+      background: #1a63d9;
+      transform: translateY(-2px);
+    }
+
+    #eventDetail {
+      display: none;
+      max-width: 1150px;
+      margin: auto;
+      padding: 60px 20px 100px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    #eventDetail.active {
+      display: block;
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 35px;
+      align-items: start;
+      margin-top: 30px;
+    }
+
+    .detail-image {
+      width: 100%;
+      min-height: 430px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .detail-box {
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .detail-day {
+      font-size: 15px;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .detail-time {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a63d9;
+      margin-bottom: 6px;
+    }
+
+    .detail-location {
+      font-size: 15px;
+      color: #666;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .detail-box h2 {
+      font-size: 38px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .detail-description {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 24px;
+      white-space: pre-line;
+      line-height: 1.9;
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    footer .footer-logo {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .banner-text h1 {
+        font-size: 60px;
+      }
+
+      .banner-text p {
+        font-size: 20px;
+      }
+
+      header {
+        padding: 18px 24px;
+      }
+
+      .detail-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-image {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+      }
+
+      nav {
+        gap: 15px;
+        font-size: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .banner {
+        min-height: 60vh;
+      }
+
+      .banner-text h1 {
+        font-size: 44px;
+      }
+
+      .banner-text p {
+        font-size: 18px;
+      }
+
+      .section-title,
+      .program-head h2 {
+        font-size: 32px;
+      }
+
+      .intro-text {
+        font-size: 18px;
+      }
+
+      .day-title {
+        font-size: 28px;
+      }
+
+      .detail-box {
+        padding: 24px 20px;
+      }
+
+      .detail-box h2 {
+        font-size: 28px;
+      }
+
+      .detail-description {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <header id="top" class="site-header">
-    <div class="container">
-      <h1 class="festival-title">Komm</h1>
-      <h1 class="festival-title">ZUHÖREN.</h1>
-      <p class="subtitle">Drei Tage für die Ohren. Drei Tage für uns.</p>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#programm">Zum Programm</a>
-        <a class="btn btn-ghost" href="#kontakt">Kontakt & Anmeldung</a>
-      </div>
-    </div>
-
-    <!-- Sticky Nav -->
-    <nav class="nav-bar" aria-label="Hauptnavigation">
-      <div class="container nav-inner">
-        <a class="brand" href="#top" aria-label="Nach oben">ZUHÖREN</a>
-        <ul class="nav-list">
-          <li><a href="#festival">Festival</a></li>
-          <li><a href="#programm">Programm</a></li>
-          <li><a href="#freitag-2026-04-24">Fr</a></li>
-          <li><a href="#samstag-2026-04-25">Sa</a></li>
-          <li><a href="#sonntag-2026-04-26">So</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-      </div>
+  <header>
+    <div class="logo">ZUHÖREN</div>
+    <nav>
+      <a href="#about">Über</a>
+      <a href="#" id="navProgrammLink">Programm</a>
+      <a href="#kontakt">Kontakt</a>
     </nav>
   </header>
 
-  <main id="content">
+  <section class="banner" id="topBanner">
+    <div class="shape red"></div>
+    <div class="shape green"></div>
+    <div class="shape orange"></div>
+    <div class="shape purple"></div>
+    <div class="shape blue"></div>
+    <div class="shape yellow"></div>
+    <div class="overlay"></div>
 
-    <!-- HERO -->
-    <section id="festival" class="section">
-      <div class="container">
-        <h2>Hörst du das?</h2>
-        <p>Das Singen der Vögel? Den Klang fremder Sprachen? Die Geräusche der Stadt? Hörst du mich?</p>
-        <p><strong>Nein?</strong></p>
-        <p>
-          Dann komm zu <strong>ZUHÖREN.</strong><br />
-          Lerne deine Ohren – und andere Menschen – neu kennen.<br />
-          Mach mit bei Workshops und Exkursionen. Geh zu Lesungen und Klangerlebnissen.
-        </p>
-        <p>Drei Tage lang hast du dazu die Möglichkeit: <strong>gratis, mehrsprachig und einfach.</strong></p>
-        <p><strong>Wozu?</strong> Damit wir einander – und uns selbst – (wieder) zuhören.</p>
-
-        <div class="notice">
-          <p>
-            <strong>ZUHÖREN</strong> ist ein Festival des gemeinnützigen Vereins <strong>GAP</strong>.
-            Gemeinsam setzen wir uns für mehr Gerechtigkeit durch Aktivismus und Partizipation ein.
-            Wir glauben: Eine friedliche und faire Gesellschaft ist möglich. <strong>Gemeinsam schaffen wir das.</strong>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROGRAM -->
-    <section id="programm" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <h2>Programm</h2>
-          <p class="small">Gratis · Mehrsprachig · Einfach vorbeikommen (bei manchen Terminen bitte anmelden)</p>
-        </div>
-
-        <!-- FRIDAY -->
-        <article id="freitag-2026-04-24" class="day">
-          <header class="day-header">
-            <h3>Freitag, 24. April 2026</h3>
-          </header>
-
-          <div class="grid">
-            <section class="card">
-              <header class="card-header">
-                <h4>09:30 – 11:00 Uhr · Deine Musik, deine Geschichte</h4>
-                <p class="meta"><strong>Seniorenheim St. Raphael</strong><br>Ing.-Etzl-Straße 71, Innsbruck</p>
-              </header>
-              <div class="card-body">
-                <p>Du magst Musik? Du hörst gerne zu? Und du erzählst gerne Geschichten aus deinem Leben?
-Dann ist diese Veranstaltung genau richtig für dich! Und dieses Mal findet sie an einem ganz besonderen Ort statt. Nämlich im Seniorenheim St. Raphael. 
-Deine Musik, deine Geschichte funktioniert ganz einfach. Du bringst 1-2 Lieder mit. Wir hören sie gemeinsam an. Und du erzählst, warum du diese Lieder magst. Warum sie wichtig für dich sind. Und welche Erlebnisse du mit ihnen verbindest. 
-Eine Veranstaltung zum Lachen, Weinen und sich besser Kennenlernen. 
-.</p>
-              </div>
-            </section>
-
-            <section class="card">
-              <header class="card-header">
-                <h4>12:00 – 13:30 Uhr · Wir bitten zu Tisch</h4>
-                <p class="meta"><strong>Restaurant Arabisk</strong><br>Dreiheiligenstraße 33, Innsbruck</p>
-              </header>
-              <div class="card-body">
-                <p>Restaurant Arabisk (Dreiheiligenstraße 33, Innsbruck)
-Gemeinsam Pause machen und sich austauschen? Über deinen Berufswunsch? Erfahrungen und Herausforderungen im Job? Klingt gut? Dann bitten wir auch dich zu Tisch. 
-Beim gemeinsamen Mittagessen mit … kannst du alles fragen, was du schon immer über den Beruf wissen wolltest. Ganz persönlich und direkt. Und dann: einfach mal zuhören, essen und genießen. Das Essen geht nämlich aufs Haus. 
-Bitte melde dich zu dieser Veranstaltung unter info@weclosethegap.at an.
-Über …. (Personenbeschreibung)
-</p>
-                <p class="registration"><strong>Anmeldung:</strong> <a href="mailto:info@weclosethegap.at">info@weclosethegap.at</a></p>
-              </div>
-            </section>
-
-            <section class="card">
-              <header class="card-header">
-                <h4>19:00 – 20:30 Uhr · Literarische Klänge</h4>
-                <p class="meta"><strong>AEP</strong><br>Schöpfstraße 19, Innsbruck</p>
-                <p class="meta">Lesung mit <strong>Oleksandra Lavrenchuk</strong> & <strong>Hamed Abboud</strong></p>
-              </header>
-              <div class="card-body">
-                <p>AEP – Arbeitskreis Emanzipation und Partnerschaft (Schöpfstraße 19, Innsbruck)
-Eine Person muss ihre Heimat verlassen. Was nimmt sie mit? Erinnerungen und Erlebnisse, Gefühle und Gedanken, Hoffnung und Angst. Und ihre Sprache. Wie aber klingt diese in einem anderen Land? In einem Land, in dem niemand etwas zu verstehen scheint. Oder doch? 
-Gemeinsam mit den Autor:innen Oleksandra Lavrenchuk und Hamed Abboud möchten wir das herausfinden. In ihren literarischen Texten geht es um all das, was Heimat und Migration bedeutet. Auf und außerhalb der jeweiligen Muttersprache. 
-Die Lesung findet auf Deutsch, Ukrainisch und Arabisch statt. 
-Zu den Autor:innnen:
-Oleksandra (Sasha) Lavrenchuk wurde1982 in Kyijw (Ukraine) geboren. Als freiberufliche Drehbuchautorin wirkt sie an zahlreichen Projekten in der Ukraine mit, während sie als Dichterin ihre Lyrik in eigenständigen Bänden veröffentlicht. Seit 2022 lebt sie München, nachdem sie aus ihrem Heimatland fliehen musste.
-Hamed Abboud wurde 1987 in Deir Ez-Zor (Syrien) geboren. 2012 musste er aus Syrien fliehen und kam 2014 nach Zwischenstopps in Ägypten, Dubai und der Türkei in Österreich an. Seit 2005 veröffentlicht er regelmäßig Texte in Zeitschriften und Zeitungen. 2012 erschien sein erster Gedichtband.
-https://www.hamedabboud.at/
-</p>
-              </div>
-            </section>
-          </div>
-        </article>
-
-        <!-- SATURDAY -->
-        <article id="samstag-2026-04-25" class="day">
-          <header class="day-header">
-            <h3>Samstag, 25. April 2026</h3>
-          </header>
-
-          <div class="grid">
-            <section class="card">
-              <header class="card-header">
-                <h4>10:30 – 12:30 Uhr · Setz dich zu mir. Bänke zum Zuhören.</h4>
-                <p class="meta"><strong>Überall in der Stadt</strong><br>Plätze folgen</p>
-              </header>
-              <div class="card-body">
-                <p>Überall in der Stadt
-Bänke laden zum Verweilen ein. Und zur gemeinsamen Unterhaltung. Wieso nicht mal mit einer unbekannten Person plaudern oder ihr dein Herz ausschütten? Einen gemeinsamen Moment der Zweisamkeit im Stadtleben schaffen? Oder vielleicht einfach nur zusammen die Sonne genießen?
-Passant:innen und alle Personen mit Redebedarf finden unsere Bänke zum Zuhören an folgenden Plätzen: ….
-Einfach vorbeikommen, hinsetzten und los reden
-.</p>
-              </div>
-            </section>
-
-            <section class="card">
-              <header class="card-header">
-                <h4>16:00 – 18:30 Uhr · Deep Listening Workshop</h4>
-                <p class="meta"><strong>MS Kettenbrücke – Turnhalle</strong><br>Falkstraße 28, Innsbruck</p>
-              </header>
-              <div class="card-body">
-                <p>Turnhalle Mittelschule Kettenbrücke (Falkstraße 28, Innsbruck)
-
-Deep Listening bedeutet hören und zuzuhören – mit dem ganzen Körper. Alleine und gemeinsam.
-Erfunden wurde Deep Listening von der Musikerin und Komponistin Pauline Oliveros. In diesem Workshop lernst du ihre Philosophie, Meditationen und Übungen kennen. Sie sind einfach und auch im Alltag umsetzbar, sie reichen vom Einsatz der eigenen Stimme und des eigenen Körpers hin zum gemeinsamen Hören und Zuhören. Und fördern so Gemeinschaft, Kreativität und persönliches Wachstum.
-Vorkenntnisse sind nicht notwendigen. 
-
-Bitte melde dich zu dieser Veranstaltung unter info@weclosethegap.at an.
-Der Workshop findet auf Englisch statt. Bei Bedarf ist eine Übersetzung auf Deutsch und Kroatisch möglich. Falls du dir das wünschst, lass es uns bitte wissen.
-Über die Workshopleiterin:
-Nina Jukić ist Komponistin, Sound Artist, Sängerin, Musikpädagogin und zertifizierte Deep Listening Workshop-Leiterin. Sie lebt und arbeitet in Wien. 
-Mehr Infos unter: https://www.likepearlsonastring.com/about
-</p>
-                <p class="registration"><strong>Anmeldung:</strong> <a href="mailto:info@weclosethegap.at">info@weclosethegap.at</a></p>
-              </div>
-            </section>
-
-            <section class="card">
-              <header class="card-header">
-                <h4>19:00 – 21:00 Uhr · Slow Dating Night</h4>
-                <p class="meta"><strong>Café Lotta</strong><br>Hallerstraße 1, Innsbruck</p>
-              </header>
-              <div class="card-body">
-                <p>Erinnerst du dich noch? An den Moment, als du diesen tollen Menschen kennengelernt hast? An den Ort, die Blicke, den Geruch, die Stimmung? An die Neugier und die Freude auf diese Person? Weißt du noch, wie aufregend so ein Kennenlernen sein kann? 
-Nein? Dann komm zu unserer Slow Dating Night. Mithilfe von Fragen machen wir dich und dein Gegenüber miteinander bekannt. Ruhig, ganz entspannt und ohne Handy zwischen euch. Und wer weiß? Vielleicht funkt es ja trotzdem.
-Alle sind willkommen. Spontan vorbeikommen geht immer. Trotzdem bitten wir aus organisatorischen Gründen um Anmeldung unter info@weclosethegap.at. 
-.</p>
-                <p class="registration"><strong>Anmeldung:</strong> <a href="mailto:info@weclosethegap.at">info@weclosethegap.at</a></p>
-              </div>
-            </section>
-          </div>
-        </article>
-
-        <!-- SUNDAY -->
-        <article id="sonntag-2026-04-26" class="day">
-          <header class="day-header">
-            <h3>Sonntag, 26. April 2026</h3>
-          </header>
-
-          <div class="grid">
-            <section class="card">
-              <header class="card-header">
-                <h4>Eine Stunde vor Sonnenaufgang · Dawn Chorus</h4>
-                <p class="meta"><strong>Innsbruck</strong><br>Treffpunkt folgt</p>
-              </header>
-              <div class="card-body">
-                <p>Innsbruck (Treffpunkt wird noch bekannt gegeben)
-Naturliebhaber:innen kennen und lieben ihn – den jährlich stattfindenden International Dawn Chorus Day. An diesem Tag treffen sich Menschen auf der ganzen Welt, um gemeinsam dem Gesang der Vögel zu lauschen. Und das bereits vor Sonnenaufgang – denn dann zwitschern, trällern und pfeifen Vögel am meisten. 
-Dieses Jahr veranstalten wir diesen besonderen Tag zum ersten Mal auch in Innsbruck. 
-Gemeinsam mit dem Experten Eberhard Steiner erkunden wir akustisch die Stadt, hören den Vögeln zu und uns ihre Symphonien an. Vorwissen ist keines notwendig. Nur Ruhe, warme Kleidung und offene Ohren. Für alles weitere sorgt die Natur. 
-Bitte melde dich zu dieser Veranstaltung unter info@weclosethegap.at an.
-.</p>
-                <p class="registration"><strong>Anmeldung:</strong> <a href="mailto:info@weclosethegap.at">info@weclosethegap.at</a></p>
-              </div>
-            </section>
-
-            <section class="card">
-              <header class="card-header">
-                <h4>Bis 14:00 Uhr · Soundinstallation</h4>
-                <p class="meta"><strong>Citykirche / Spitalskirche</strong><br>Maria-Theresien-Straße 2</p>
-              </header>
-              <div class="card-body">
-                <p>Wie klingt es, wenn Menschen im Großstadtgetümmel laut über ihr Leben nachdenken? Wenn sich ihre Geschichten, ihre Dankbarkeit und ihre Zweifel mit den Geräuschen der Stadt vermischen? Und wenn all das mit Musik untermalt wird? Was hören wir dann?
-                  Neugierig geworden? Dann schau vorbei und hör die Werke der in New York lebenden Komponistin Đurđija Vućinič an. Ein Moment zum Hin- und Zuhören, zum Still- und Innehalten. 
-Zur Komponistin:
-Die Komponistin und Musikwissenschaftlerin Đurđija Vućinič verbindet in ihrer Arbeit klassische Musik mit experimentellen Ansätzen und verwischt dabei oft die Grenze zwischen Partitur und Klanglandschaft. In ihren Werken verwendet sie Aufnahmen aus dem städtischen Leben – Gesprächsfragmente, öffentliche Räume und Verkehrsmittel –, die sie in Kompositionen und Installationen verwandelt. 
-Đurđija Vućinič lebt und arbeitet seit über einem Jahrzehnt in New York.
-
-                </p>
-              </div>
-            </section>
-
-            <section class="card">
-              <header class="card-header">
-                <h4>14:00 – 16:00 Uhr · Gemeinsames Gehen</h4>
-                <p class="meta"><strong>Treffpunkt:</strong> Vorplatz Unibibliothek</p>
-              </header>
-              <div class="card-body">
-                <p>Treffpunkt: Vorplatz Unibibliothek
-Allein gehen kann jeder. Gemeinsames Gehen ist aber viel schöner. Ob still und leise oder laut und lustig. Ganz egal. Wir gehen auf jeden Fall. Eine Runde durch Innsbruck. Für jeden Menschen mach- und schaffbar. Barrierefrei und ohne viele Ampel. Denn nichts kann uns stoppen. 
-Die Veranstaltung richtet sich an Frauen*. Hunde und Kinder sind willkommen, bitte gerne mitbringen. 
-.</p>
-              </div>
-            </section>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="kontakt" class="section">
-      <div class="container">
-        <h2>Kontakt & Anmeldung</h2>
-        <p>E-Mail: <a href="mailto:info@weclosethegap.at">info@weclosethegap.at</a></p>
-        
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer" id="footer">
-    <div class="container footer-inner">
-      <p>© GAP – ZUHÖREN Festival</p>
-      <p class="small">Innsbruck · 24.–26. April 2026</p>
+    <div class="banner-text">
+      <div class="small">Komm</div>
+      <h1>ZUHÖREN.</h1>
+      <p>Drei Tage für die Ohren. Drei Tage für uns.</p>
+      <a href="#" class="hero-button" id="showEventsBtn">Zu den Events</a>
     </div>
+  </section>
+
+  <section class="content" id="about">
+    <h2 class="section-title">Über das Festival</h2>
+
+    <div class="intro-text">
+      Hörst du das? Das Singen der Vögel? Den Klang fremder Sprachen? Die Geräusche der Stadt? Hörst du mich?
+      <br><br>
+      Nein? Dann komm ZUHÖREN. Lerne deine Ohren und andere Menschen kennen. Mach mit bei Workshops und Exkursionen. Geh zu Lesungen und Klangerlebnissen.
+      <br><br>
+      Drei Tage lange hast du dazu die Möglichkeit. Gratis, mehrsprachig und einfach.
+      <br><br>
+      Warum? Damit wir einander und uns selbst (wieder) zuhören.
+    </div>
+
+    <div class="intro-text second">
+      ZUHÖREN ist ein Festival des gemeinnützigen Vereins GAP. Gemeinsam setzen wir uns für mehr Gerechtigkeit durch Aktivismus und Partizipation ein.
+      Wir glauben nämlich, dass eine friedliche und faire Gesellschaft möglich ist. Gemeinsam schaffen wir das.
+      <br><br>
+      In Kooperation mit: GPA – Gewerkschaft der Privatangestellten, Südwind Tirol, AEP – Arbeitskreis Emanzipation und Partnerschaft,
+      BirdLife, Wohnheim St. Raphael, Café Lotta, Citykirche Innsbruck.
+    </div>
+  </section>
+
+  <section class="program-section hidden" id="programm">
+    <div class="program-head">
+      <h2>PROGRAMM</h2>
+    </div>
+
+    <div class="day-section">
+      <h3 class="day-title">Freitag, 24. April 2026</h3>
+
+      <div class="events-grid">
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80" alt="Musik und Geschichten">
+          <div class="event-content">
+            <div class="event-time">09:30 – 11:00 Uhr</div>
+            <div class="event-location">Seniorenheim St. Raphael, Innsbruck</div>
+            <h3>Deine Musik, deine Geschichte</h3>
+            <p>Musik, Erinnerungen und persönliche Geschichten zwischen Generationen.</p>
+            <button class="card-button" data-event="musik">Mehr erfahren</button>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Gemeinsames Essen">
+          <div class="event-content">
+            <div class="event-time">12:00 – 13:30 Uhr</div>
+            <div class="event-location">Restaurant Arabisk, Innsbruck</div>
+            <h3>Wir bitten zu Tisch</h3>
+            <p>Gemeinsames Essen, Austausch und Zuhören in entspannter Atmosphäre.</p>
+            <button class="card-button" data-event="tisch">Mehr erfahren</button>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1200&q=80" alt="Literarische Lesung">
+          <div class="event-content">
+            <div class="event-time">19:00 – 20:30 Uhr</div>
+            <div class="event-location">AEP, Innsbruck</div>
+            <h3>Literarische Klänge</h3>
+            <p>Lesung mit Oleksandra Lavrenchuk und Hamed Abboud über Heimat und Migration.</p>
+            <button class="card-button" data-event="literatur">Mehr erfahren</button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="day-section">
+      <h3 class="day-title">Samstag, 25. April 2026</h3>
+
+      <div class="events-grid">
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Bänke in der Stadt">
+          <div class="event-content">
+            <div class="event-time">10:30 – 12:30 Uhr</div>
+            <div class="event-location">Überall in der Stadt</div>
+            <h3>Setz dich zu mir. Bänke zum Zuhören.</h3>
+            <p>Bänke in der Stadt laden zum Reden, Zuhören und Verweilen ein.</p>
+            <button class="card-button" data-event="baenke">Mehr erfahren</button>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1200&q=80" alt="Workshop">
+          <div class="event-content">
+            <div class="event-time">16:00 – 18:30 Uhr</div>
+            <div class="event-location">Mittelschule Kettenbrücke, Innsbruck</div>
+            <h3>Deep Listening Workshop mit Nina Jukić</h3>
+            <p>Hören und Zuhören mit dem ganzen Körper – alleine und gemeinsam.</p>
+            <button class="card-button" data-event="deep-listening">Mehr erfahren</button>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=80" alt="Slow Dating">
+          <div class="event-content">
+            <div class="event-time">19:00 – 21:00 Uhr</div>
+            <div class="event-location">Café Lotta, Innsbruck</div>
+            <h3>Slow Dating Night</h3>
+            <p>Ruhiges Kennenlernen mit Fragen, Gesprächen und echter Aufmerksamkeit.</p>
+            <button class="card-button" data-event="slow-dating">Mehr erfahren</button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="day-section">
+      <h3 class="day-title">Sonntag, 26. April 2026</h3>
+
+      <div class="events-grid">
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Vögel am Morgen">
+          <div class="event-content">
+            <div class="event-time">Eine Stunde vor Sonnenaufgang</div>
+            <div class="event-location">Innsbruck</div>
+            <h3>International Dawn Chorus Day</h3>
+            <p>Gemeinsam den Gesang der Vögel hören – früh am Morgen in Innsbruck.</p>
+            <button class="card-button" data-event="dawn-chorus">Mehr erfahren</button>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" alt="Kirche und Klang">
+          <div class="event-content">
+            <div class="event-time">Bis 14:00 Uhr</div>
+            <div class="event-location">Citykirche Innsbruck</div>
+            <h3>B Side Prayer – Soundinstallation</h3>
+            <p>Eine Klanginstallation zwischen Stadtgeräuschen, Stimmen und Musik.</p>
+            <button class="card-button" data-event="b-side-prayer">Mehr erfahren</button>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <img class="event-image" src="https://images.unsplash.com/photo-1502224562085-639556652f33?auto=format&fit=crop&w=1200&q=80" alt="Spaziergang">
+          <div class="event-content">
+            <div class="event-time">14:00 – 16:00 Uhr</div>
+            <div class="event-location">Vorplatz Unibibliothek</div>
+            <h3>Gemeinsames Gehen</h3>
+            <p>Ein gemeinsamer, barrierefreier Spaziergang durch Innsbruck.</p>
+            <button class="card-button" data-event="gemeinsames-gehen">Mehr erfahren</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="eventDetail">
+    <button class="back-button" id="backButton">← Zurück zum Programm</button>
+
+    <div class="detail-layout">
+      <img id="detailImage" class="detail-image" src="" alt="Event Bild">
+
+      <div class="detail-box">
+        <div id="detailDay" class="detail-day"></div>
+        <div id="detailTime" class="detail-time"></div>
+        <div id="detailLocation" class="detail-location"></div>
+        <h2 id="detailTitle"></h2>
+        <div id="detailDescription" class="detail-description"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="kontakt">
+    <div class="footer-logo">GAP</div>
+    <div>Kontakt & Anmeldung</div>
+    <div>E-Mail: info@weclosethegap.at</div>
+    <div>© GAP – ZUHÖREN Festival</div>
+    <div>Innsbruck · 24.–26. April 2026</div>
   </footer>
+
+  <script>
+    const eventData = {
+      musik: {
+        day: "Freitag, 24. April 2026",
+        title: "Deine Musik, deine Geschichte",
+        time: "09:30 – 11:00 Uhr",
+        location: "Seniorenheim St. Raphael (Ing.-Etzl Straße 71, Innsbruck)",
+        image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+        description: `Du magst Musik? Du hörst gerne zu? Und du erzählst gerne Geschichten aus deinem Leben?
+
+Dann ist diese Veranstaltung genau richtig für dich! Und dieses Mal findet sie an einem ganz besonderen Ort statt. Nämlich im Seniorenheim St. Raphael.
+
+Du bringst 1–2 Lieder mit. Wir hören sie gemeinsam an. Und du erzählst, warum du diese Lieder magst, warum sie wichtig für dich sind und welche Erlebnisse du mit ihnen verbindest.
+
+Eine Veranstaltung zum Lachen, Weinen und sich besser Kennenlernen.`
+      },
+
+      tisch: {
+        day: "Freitag, 24. April 2026",
+        title: "Wir bitten zu Tisch",
+        time: "12:00 – 13:30 Uhr",
+        location: "Restaurant Arabisk (Dreiheiligenstraße 33, Innsbruck)",
+        image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+        description: `Gemeinsam Pause machen und sich austauschen? Über deinen Berufswunsch? Erfahrungen und Herausforderungen im Job?
+
+Dann bitten wir auch dich zu Tisch.
+
+Beim gemeinsamen Mittagessen kannst du Fragen stellen, zuhören, essen und genießen. Das Essen geht aufs Haus.
+
+Bitte melde dich zu dieser Veranstaltung unter info@weclosethegap.at an.`
+      },
+
+      literatur: {
+        day: "Freitag, 24. April 2026",
+        title: "Literarische Klänge",
+        time: "19:00 – 20:30 Uhr",
+        location: "AEP – Arbeitskreis Emanzipation und Partnerschaft (Schöpfstraße 19, Innsbruck)",
+        image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1200&q=80",
+        description: `Lesung mit Sasha (Oleksandra) Lavrenchuk und Hamed Abboud.
+
+Eine Person muss ihre Heimat verlassen. Was nimmt sie mit? Erinnerungen, Gefühle, Hoffnung, Angst – und ihre Sprache.
+
+Gemeinsam mit den Autor:innen möchten wir herausfinden, wie Heimat und Migration klingen.
+
+Die Lesung findet auf Deutsch, Ukrainisch und Arabisch statt.`
+      },
+
+      baenke: {
+        day: "Samstag, 25. April 2026",
+        title: "Setz dich zu mir. Bänke zum Zuhören.",
+        time: "10:30 – 12:30 Uhr",
+        location: "Überall in der Stadt",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        description: `Bänke laden zum Verweilen ein. Und zur gemeinsamen Unterhaltung.
+
+Wieso nicht mal mit einer unbekannten Person plaudern oder ihr dein Herz ausschütten?
+
+Passant:innen und alle Personen mit Redebedarf finden unsere Bänke zum Zuhören an verschiedenen Plätzen in der Stadt.
+
+Einfach vorbeikommen, hinsetzen und losreden.`
+      },
+
+      "deep-listening": {
+        day: "Samstag, 25. April 2026",
+        title: "Deep Listening Workshop mit Nina Jukić",
+        time: "16:00 – 18:30 Uhr",
+        location: "Turnhalle Mittelschule Kettenbrücke (Falkstraße 28, Innsbruck)",
+        image: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1200&q=80",
+        description: `Deep Listening bedeutet hören und zuzuhören – mit dem ganzen Körper. Alleine und gemeinsam.
+
+In diesem Workshop lernst du die Philosophie, Meditationen und Übungen von Pauline Oliveros kennen.
+
+Sie fördern Gemeinschaft, Kreativität und persönliches Wachstum.
+
+Vorkenntnisse sind nicht notwendig.
+
+Bitte melde dich unter info@weclosethegap.at an.`
+      },
+
+      "slow-dating": {
+        day: "Samstag, 25. April 2026",
+        title: "Slow Dating Night",
+        time: "19:00 – 21:00 Uhr",
+        location: "Café Lotta (Hallerstraße 1, Innsbruck)",
+        image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=80",
+        description: `Erinnerst du dich noch an den Moment, als du einen besonderen Menschen kennengelernt hast?
+
+Dann komm zu unserer Slow Dating Night.
+
+Mithilfe von Fragen machen wir dich und dein Gegenüber miteinander bekannt. Ruhig, entspannt und ohne Handy zwischen euch.
+
+Alle sind willkommen. Spontan vorbeikommen geht immer. Trotzdem bitten wir aus organisatorischen Gründen um Anmeldung unter info@weclosethegap.at.`
+      },
+
+      "dawn-chorus": {
+        day: "Sonntag, 26. April 2026",
+        title: "International Dawn Chorus Day",
+        time: "Eine Stunde vor Sonnenaufgang",
+        location: "Innsbruck (Treffpunkt wird noch bekannt gegeben)",
+        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+        description: `Naturliebhaber:innen kennen und lieben den International Dawn Chorus Day.
+
+An diesem Tag treffen sich Menschen auf der ganzen Welt, um gemeinsam dem Gesang der Vögel zu lauschen.
+
+Gemeinsam mit dem Experten Eberhard Steiner erkunden wir akustisch die Stadt, hören den Vögeln zu und lauschen ihren Symphonien.
+
+Bitte melde dich unter info@weclosethegap.at an.`
+      },
+
+      "b-side-prayer": {
+        day: "Sonntag, 26. April 2026",
+        title: "B Side Prayer – Soundinstallation von Đurđija Vučinić",
+        time: "Bis 14:00 Uhr",
+        location: "Citykirche / Spitalskirche zum Heiligen Geist (Maria-Theresien-Straße 2, Innsbruck)",
+        image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
+        description: `Wie klingt es, wenn Menschen im Großstadtgetümmel laut über ihr Leben nachdenken?
+
+B Side Prayer verbindet Geschichten, Dankbarkeit, Zweifel, Stadtgeräusche und Musik.
+
+Ein Moment zum Hin- und Zuhören, zum Still- und Innehalten.
+
+Die Werke der in New York lebenden Komponistin Đurđija Vučinić laden zum bewussten Hören ein.`
+      },
+
+      "gemeinsames-gehen": {
+        day: "Sonntag, 26. April 2026",
+        title: "Gemeinsames Gehen",
+        time: "14:00 – 16:00 Uhr",
+        location: "Treffpunkt: Vorplatz Unibibliothek",
+        image: "https://images.unsplash.com/photo-1502224562085-639556652f33?auto=format&fit=crop&w=1200&q=80",
+        description: `Allein gehen kann jeder. Gemeinsames Gehen ist aber viel schöner.
+
+Ob still und leise oder laut und lustig – wir gehen auf jeden Fall.
+
+Eine Runde durch Innsbruck. Für jeden Menschen machbar. Barrierefrei und ohne viele Ampeln.
+
+Die Veranstaltung richtet sich an Frauen*. Hunde und Kinder sind willkommen.`
+      }
+    };
+
+    const programm = document.getElementById("programm");
+    const about = document.getElementById("about");
+    const eventDetail = document.getElementById("eventDetail");
+    const topBanner = document.getElementById("topBanner");
+
+    const showEventsBtn = document.getElementById("showEventsBtn");
+    const navProgrammLink = document.getElementById("navProgrammLink");
+    const backButton = document.getElementById("backButton");
+    const eventButtons = document.querySelectorAll(".card-button");
+
+    const detailDay = document.getElementById("detailDay");
+    const detailTitle = document.getElementById("detailTitle");
+    const detailTime = document.getElementById("detailTime");
+    const detailLocation = document.getElementById("detailLocation");
+    const detailImage = document.getElementById("detailImage");
+    const detailDescription = document.getElementById("detailDescription");
+
+    function openProgram() {
+      eventDetail.classList.remove("active");
+      programm.classList.remove("hidden");
+      about.classList.remove("hidden");
+
+      programm.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    function showEvent(eventKey) {
+      const event = eventData[eventKey];
+      if (!event) return;
+
+      detailDay.textContent = event.day;
+      detailTitle.textContent = event.title;
+      detailTime.textContent = event.time;
+      detailLocation.textContent = event.location;
+      detailImage.src = event.image;
+      detailImage.alt = event.title;
+      detailDescription.textContent = event.description;
+
+      programm.classList.add("hidden");
+      about.classList.add("hidden");
+      eventDetail.classList.add("active");
+
+      window.scrollTo({
+        top: topBanner.offsetTop,
+        behavior: "smooth"
+      });
+    }
+
+    function backToProgram() {
+      openProgram();
+    }
+
+    showEventsBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      openProgram();
+    });
+
+    navProgrammLink.addEventListener("click", function(e) {
+      e.preventDefault();
+      openProgram();
+    });
+
+    eventButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const eventKey = button.dataset.event;
+        showEvent(eventKey);
+      });
+    });
+
+    backButton.addEventListener("click", backToProgram);
+  </script>
+
 </body>
 </html>
