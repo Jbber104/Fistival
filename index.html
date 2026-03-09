@@ -67,82 +67,31 @@
       color: #1a63d9;
     }
 
-    .banner {
-      position: relative;
-      min-height: 72vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      overflow: hidden;
-      padding: 40px 20px;
-    }
+ .banner {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  padding: 40px 20px;
 
-    .shape {
-      position: absolute;
-    }
+  background-image:url("ba.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    .red {
-      background: #e40000;
-      width: 50%;
-      height: 45%;
-      top: 0;
-      left: 0;
-      clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
-    }
+    
 
-    .green {
-      background: #00a000;
-      width: 65%;
-      height: 80%;
-      bottom: 0;
-      left: 0;
-      clip-path: polygon(0 100%, 60% 15%, 100% 90%, 70% 100%);
-    }
-
-    .orange {
-      background: #ff7a00;
-      width: 30%;
-      height: 30%;
-      top: 0;
-      left: 35%;
-      clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
-    }
-
-    .purple {
-      background: #8a00a8;
-      width: 35%;
-      height: 70%;
-      top: 15%;
-      left: 45%;
-      clip-path: polygon(30% 0, 100% 60%, 60% 100%, 0 40%);
-    }
-
-    .blue {
-      background: #1a63d9;
-      width: 45%;
-      height: 55%;
-      top: 0;
-      right: 0;
-      clip-path: polygon(0 0, 100% 0, 100% 95%, 35% 100%);
-    }
-
-    .yellow {
-      background: #f3b400;
-      width: 40%;
-      height: 80%;
-      bottom: 0;
-      right: 0;
-      clip-path: polygon(100% 0, 100% 100%, 0 100%);
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.22);
-      z-index: 1;
-    }
+  .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
 
     .banner-text {
       position: relative;
@@ -509,12 +458,6 @@
   </header>
 
   <section class="banner" id="topBanner">
-    <div class="shape red"></div>
-    <div class="shape green"></div>
-    <div class="shape orange"></div>
-    <div class="shape purple"></div>
-    <div class="shape blue"></div>
-    <div class="shape yellow"></div>
     <div class="overlay"></div>
 
     <div class="banner-text">
@@ -579,7 +522,7 @@
         </article>
 
         <article class="event-card">
-          <img class="event-image" src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1200&q=80" alt="Literarische Lesung">
+          <img class="event-image" src="let.jpeg" alt="Literarische Lesung">
           <div class="event-content">
             <div class="event-time">19:00 – 20:30 Uhr</div>
             <div class="event-location">AEP, Innsbruck</div>
@@ -596,7 +539,7 @@
 
       <div class="events-grid">
         <article class="event-card">
-          <img class="event-image" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Bänke in der Stadt">
+          <img class="event-image" src="Banke.jpeg" alt="Bänke in der Stadt">
           <div class="event-content">
             <div class="event-time">10:30 – 12:30 Uhr</div>
             <div class="event-location">Überall in der Stadt</div>
@@ -607,7 +550,7 @@
         </article>
 
         <article class="event-card">
-          <img class="event-image" src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1200&q=80" alt="Workshop">
+          <img class="event-image" src="de.jpg" alt="Workshop">
           <div class="event-content">
             <div class="event-time">16:00 – 18:30 Uhr</div>
             <div class="event-location">Mittelschule Kettenbrücke, Innsbruck</div>
@@ -618,7 +561,7 @@
         </article>
 
         <article class="event-card">
-          <img class="event-image" src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=80" alt="Slow Dating">
+          <img class="event-image" src="slow.jpg" alt="Slow Dating">
           <div class="event-content">
             <div class="event-time">19:00 – 21:00 Uhr</div>
             <div class="event-location">Café Lotta, Innsbruck</div>
@@ -635,7 +578,7 @@
 
       <div class="events-grid">
         <article class="event-card">
-          <img class="event-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Vögel am Morgen">
+          <img class="event-image" src="vogl.jpg" alt="Vögel am Morgen">
           <div class="event-content">
             <div class="event-time">Eine Stunde vor Sonnenaufgang</div>
             <div class="event-location">Innsbruck</div>
@@ -646,7 +589,7 @@
         </article>
 
         <article class="event-card">
-          <img class="event-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80" alt="Kirche und Klang">
+          <img class="event-image" src="Bside.jpeg"Kirche und Klang">
           <div class="event-content">
             <div class="event-time">Bis 14:00 Uhr</div>
             <div class="event-location">Citykirche Innsbruck</div>
@@ -657,7 +600,7 @@
         </article>
 
         <article class="event-card">
-          <img class="event-image" src="https://images.unsplash.com/photo-1502224562085-639556652f33?auto=format&fit=crop&w=1200&q=80" alt="Spaziergang">
+          <img class="event-image" src="spaz.jpg" alt="Spaziergang">
           <div class="event-content">
             <div class="event-time">14:00 – 16:00 Uhr</div>
             <div class="event-location">Vorplatz Unibibliothek</div>
@@ -731,14 +674,17 @@ Bitte melde dich zu dieser Veranstaltung unter info@weclosethegap.at an.`
         title: "Literarische Klänge",
         time: "19:00 – 20:30 Uhr",
         location: "AEP – Arbeitskreis Emanzipation und Partnerschaft (Schöpfstraße 19, Innsbruck)",
-        image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1200&q=80",
+        image: "let.jpeg",
         description: `Lesung mit Sasha (Oleksandra) Lavrenchuk und Hamed Abboud.
 
-Eine Person muss ihre Heimat verlassen. Was nimmt sie mit? Erinnerungen, Gefühle, Hoffnung, Angst – und ihre Sprache.
-
-Gemeinsam mit den Autor:innen möchten wir herausfinden, wie Heimat und Migration klingen.
-
-Die Lesung findet auf Deutsch, Ukrainisch und Arabisch statt.`
+Eine Person muss ihre Heimat verlassen. Was nimmt sie mit? Erinnerungen und Erlebnisse, Gefühle und Gedanken, Hoffnung und Angst. Und ihre Sprache. Wie aber klingt diese in einem anderen Land? In einem Land, in dem niemand etwas zu verstehen scheint. Oder doch?
+Gemeinsam mit den Autor:innen Oleksandra Lavrenchuk und Hamed Abboud möchten wir das herausfinden. In ihren literarischen Texten geht es um all das, was Heimat und Migration bedeutet. Auf und außerhalb der jeweiligen Muttersprache.
+Die Lesung findet auf Deutsch, Ukrainisch und Arabisch statt.
+Zu den Autor:innnen:
+Sasha (Oleksandra) Lavrenchuk wurde1982 in Kyijw (Ukraine) geboren. Seit 2022 lebt sie mit ihren zwei Kindern in München. Seit ihrem vierten Geburtstag schreibt sie Gedichte und hat mehrere Gedichtbände veröffentlicht.  Sie arbeitete als Redakteurin beim Fernsehen, war Mitglied von Seriendrehbuch-Teams und ist zudem als Übersetzerin tätig.   
+Hamed Abboudwurde 1987 in Deir Ez-Zor (Syrien) geboren. 2012 musste er aus Syrien fliehen und kam 2014 nach Zwischenstopps in Ägypten, Dubai und der Türkei in Österreich an. Seit 2005 veröffentlicht er regelmäßig Texte in Zeitschriften und Zeitungen. 2012 erschien sein erster Gedichtband.
+https://www.hamedabboud.at/
+`
       },
 
       baenke: {
@@ -746,7 +692,7 @@ Die Lesung findet auf Deutsch, Ukrainisch und Arabisch statt.`
         title: "Setz dich zu mir. Bänke zum Zuhören.",
         time: "10:30 – 12:30 Uhr",
         location: "Überall in der Stadt",
-        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+        image: "banke.jpeg",
         description: `Bänke laden zum Verweilen ein. Und zur gemeinsamen Unterhaltung.
 
 Wieso nicht mal mit einer unbekannten Person plaudern oder ihr dein Herz ausschütten?
@@ -761,7 +707,7 @@ Einfach vorbeikommen, hinsetzen und losreden.`
         title: "Deep Listening Workshop mit Nina Jukić",
         time: "16:00 – 18:30 Uhr",
         location: "Turnhalle Mittelschule Kettenbrücke (Falkstraße 28, Innsbruck)",
-        image: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1200&q=80",
+        image: "de.jpg",
         description: `Deep Listening bedeutet hören und zuzuhören – mit dem ganzen Körper. Alleine und gemeinsam.
 
 In diesem Workshop lernst du die Philosophie, Meditationen und Übungen von Pauline Oliveros kennen.
@@ -778,7 +724,7 @@ Bitte melde dich unter info@weclosethegap.at an.`
         title: "Slow Dating Night",
         time: "19:00 – 21:00 Uhr",
         location: "Café Lotta (Hallerstraße 1, Innsbruck)",
-        image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=80",
+        image:"slow.jpg",
         description: `Erinnerst du dich noch an den Moment, als du einen besonderen Menschen kennengelernt hast?
 
 Dann komm zu unserer Slow Dating Night.
@@ -793,7 +739,7 @@ Alle sind willkommen. Spontan vorbeikommen geht immer. Trotzdem bitten wir aus o
         title: "International Dawn Chorus Day",
         time: "Eine Stunde vor Sonnenaufgang",
         location: "Innsbruck (Treffpunkt wird noch bekannt gegeben)",
-        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+        image: "vogel.jpeg",
         description: `Naturliebhaber:innen kennen und lieben den International Dawn Chorus Day.
 
 An diesem Tag treffen sich Menschen auf der ganzen Welt, um gemeinsam dem Gesang der Vögel zu lauschen.
@@ -808,7 +754,7 @@ Bitte melde dich unter info@weclosethegap.at an.`
         title: "B Side Prayer – Soundinstallation von Đurđija Vučinić",
         time: "Bis 14:00 Uhr",
         location: "Citykirche / Spitalskirche zum Heiligen Geist (Maria-Theresien-Straße 2, Innsbruck)",
-        image: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
+        image: "Bside.jpeg",
         description: `Wie klingt es, wenn Menschen im Großstadtgetümmel laut über ihr Leben nachdenken?
 
 B Side Prayer verbindet Geschichten, Dankbarkeit, Zweifel, Stadtgeräusche und Musik.
@@ -823,7 +769,7 @@ Die Werke der in New York lebenden Komponistin Đurđija Vučinić laden zum bew
         title: "Gemeinsames Gehen",
         time: "14:00 – 16:00 Uhr",
         location: "Treffpunkt: Vorplatz Unibibliothek",
-        image: "https://images.unsplash.com/photo-1502224562085-639556652f33?auto=format&fit=crop&w=1200&q=80",
+        image: "spaz.jpg",
         description: `Allein gehen kann jeder. Gemeinsames Gehen ist aber viel schöner.
 
 Ob still und leise oder laut und lustig – wir gehen auf jeden Fall.
