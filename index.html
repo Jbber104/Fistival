@@ -151,18 +151,29 @@
     }
 
     .intro-text {
-      max-width: 900px;
-      margin: 0 auto;
-      font-size: 20px;
-      text-align: center;
-      color: #222;
-    }
+  max-width: 700px;
+  margin: 40px auto;           /* توسيط + مسافة فوق وتحت */
+  padding: 0 20px;             /* مسافة من الأطراف */
+  
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.7;            /* أهم شي لراحة القراءة */
+  color: #222;
+  
+  text-align: left;
+}
 
-    .intro-text.second {
-      margin-top: 30px;
-      font-size: 18px;
-      color: #333;
-    }
+.intro-text p {
+  margin-bottom: 18px;         /* مسافة بين الفقرات */
+}
+
+.intro-text strong {
+  font-weight: 600;
+}
+
+.intro-text:first-of-type {
+  margin-top: 60px;
+}
 
     .program-section {
       max-width: 1250px;
@@ -338,20 +349,44 @@
 
     .detail-description {
       font-size: 18px;
-      color: #333;
+      color: #000000;
       margin-bottom: 24px;
-      white-space: pre-line;
       line-height: 1.9;
     }
 
-    footer {
-      background: #000;
-      color: white;
-      text-align: center;
-      padding: 45px 20px;
-      font-size: 16px;
-      line-height: 1.9;
-    }
+  footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: white;
+}
+
+.partners {
+  margin: 20px 0;
+}
+
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.partner-logos img {
+  height: 50px;
+  max-width: 100px;
+  object-fit: contain;
+  
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.partner-logos img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
 
     footer .footer-logo {
       font-size: 26px;
@@ -426,6 +461,7 @@
 
       .intro-text {
         font-size: 18px;
+        line-height: 1.6
       }
 
       .day-title {
@@ -451,7 +487,7 @@
   <header>
     <div class="logo">ZUHÖREN</div>
     <nav>
-      <a href="#about">Über</a>
+      <a href="#about">Über das Festival</a>
       <a href="#" id="navProgrammLink">Programm</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -476,18 +512,17 @@
       <br><br>
       Nein? Dann komm ZUHÖREN. Lerne deine Ohren und andere Menschen kennen. Mach mit bei Workshops und Exkursionen. Geh zu Lesungen und Klangerlebnissen.
       <br><br>
-      Drei Tage lange hast du dazu die Möglichkeit. Gratis, mehrsprachig und einfach.
+      Drei Tage lange hast du dazu die Möglichkeit. <strong>Gratis, mehrsprachig und einfach.</strong>
       <br><br>
-      Warum? Damit wir einander und uns selbst (wieder) zuhören.
+      <strong>Warum?</strong> Damit wir einander und uns selbst (wieder) zuhören.
     </div>
 
-    <div class="intro-text second">
+    <div class="intro-text">
       ZUHÖREN ist ein Festival des gemeinnützigen Vereins GAP. Gemeinsam setzen wir uns für mehr Gerechtigkeit durch Aktivismus und Partizipation ein.
       Wir glauben nämlich, dass eine friedliche und faire Gesellschaft möglich ist. Gemeinsam schaffen wir das.
       <br><br>
-      
-      Mit der Unterstützung von: <strong>Gewerkschaft der Privatangestellten und Südwind</strong> Tirol
-      In Kooperation mit: AEP – Arbeitskreis Emanzipation und Partnerschaft,
+      <strong>Mit der Unterstützung von:</strong> GPA - Gewerkschaft der Privatangestellten und Südwind Tirol<br>
+      <strong>in Kooperation mit:</strong> AEP – Arbeitskreis Emanzipation und Partnerschaft,
       BirdLife, Wohnheim St. Raphael, Café Lotta, Citykirche Innsbruck.
     </div>
   </section>
@@ -507,7 +542,7 @@
             <div class="event-time">09:30 – 11:00 Uhr</div>
             <div class="event-location">Seniorenheim St. Raphael, Innsbruck</div>
             <h3>Deine Musik, deine Geschichte</h3>
-            <p>Musik, Erinnerungen und persönliche Geschichten zwischen Generationen.</p>
+            <p>Der Soundtrack deines Lebens? Lass hören!.</p>
             <button class="card-button" data-event="musik">Mehr erfahren</button>
           </div>
         </article>
@@ -518,7 +553,7 @@
             <div class="event-time">12:00 – 13:30 Uhr</div>
             <div class="event-location">Restaurant Arabisk, Innsbruck</div>
             <h3>Wir bitten zu Tisch</h3>
-            <p>Gemeinsames Essen, Austausch und Zuhören in entspannter Atmosphäre.</p>
+            <p>Berufsberatung am Mittagstisch: eine Musiktherapeutin und Betriebsrätin erzählt.</p>
             <button class="card-button" data-event="tisch">Mehr erfahren</button>
           </div>
         </article>
@@ -529,7 +564,7 @@
             <div class="event-time">19:00 – 20:30 Uhr</div>
             <div class="event-location">AEP, Innsbruck</div>
             <h3>Literarische Klänge</h3>
-            <p>Lesung mit Oleksandra Lavrenchuk und Hamed Abboud über Heimat und Migration.</p>
+            <p>mehrsprachige Lesung mit Sasha (Oleksandra) Lavrenchuk und Hamed Abboud.</p>
             <button class="card-button" data-event="literatur">Mehr erfahren</button>
           </div>
         </article>
@@ -545,8 +580,8 @@
           <div class="event-content">
             <div class="event-time">10:30 – 12:30 Uhr</div>
             <div class="event-location">Überall in der Stadt</div>
-            <h3>Setz dich zu mir. Bänke zum Zuhören.</h3>
-            <p>Bänke in der Stadt laden zum Reden, Zuhören und Verweilen ein.</p>
+            <h3>Setz dich zu mir.</h3>
+            <p>Überall in der Stadt Und sprich mit mir. Auf unseren Zuhör-Bänken.  .</p>
             <button class="card-button" data-event="baenke">Mehr erfahren</button>
           </div>
         </article>
@@ -556,8 +591,8 @@
           <div class="event-content">
             <div class="event-time">16:00 – 18:30 Uhr</div>
             <div class="event-location">Mittelschule Kettenbrücke, Innsbruck</div>
-            <h3>Deep Listening Workshop mit Nina Jukić</h3>
-            <p>Hören und Zuhören mit dem ganzen Körper – alleine und gemeinsam.</p>
+            <h3>Deep Listening Workshop </h3>
+            <p>(Zu-)hören mit dem ganzen Körper lernen. Mit Nina Jukić.</p>
             <button class="card-button" data-event="deep-listening">Mehr erfahren</button>
           </div>
         </article>
@@ -568,7 +603,7 @@
             <div class="event-time">19:00 – 21:00 Uhr</div>
             <div class="event-location">Café Lotta, Innsbruck</div>
             <h3>Slow Dating Night</h3>
-            <p>Ruhiges Kennenlernen mit Fragen, Gesprächen und echter Aufmerksamkeit.</p>
+            <p>Liebe geht durch die Ohren</p>
             <button class="card-button" data-event="slow-dating">Mehr erfahren</button>
           </div>
         </article>
@@ -585,7 +620,7 @@
             <div class="event-time">Eine Stunde vor Sonnenaufgang</div>
             <div class="event-location">Innsbruck</div>
             <h3>International Dawn Chorus Day</h3>
-            <p>Gemeinsam den Gesang der Vögel hören – früh am Morgen in Innsbruck.</p>
+            <p>Gemeinsam früh am Morgen dem Gesang der Vögel lauschen. Mit Eberhard Steiner.</p>
             <button class="card-button" data-event="dawn-chorus">Mehr erfahren</button>
           </div>
         </article>
@@ -596,7 +631,7 @@
             <div class="event-time">Bis 14:00 Uhr</div>
             <div class="event-location">Citykirche Innsbruck</div>
             <h3>B Side Prayer – Soundinstallation</h3>
-            <p>Eine Klanginstallation zwischen Stadtgeräuschen, Stimmen und Musik.</p>
+            <p>Soundscapes von Đurđija Vučinić</p>
             <button class="card-button" data-event="b-side-prayer">Mehr erfahren</button>
           </div>
         </article>
@@ -607,7 +642,7 @@
             <div class="event-time">14:00 – 16:00 Uhr</div>
             <div class="event-location">Vorplatz Unibibliothek</div>
             <h3>Gemeinsames Gehen</h3>
-            <p>Ein gemeinsamer, barrierefreier Spaziergang durch Innsbruck.</p>
+            <p>Gehen und dabei Menschen kennenlernen? Geht das? Ja!</p>
             <button class="card-button" data-event="gemeinsames-gehen">Mehr erfahren</button>
           </div>
         </article>
@@ -631,13 +666,23 @@
     </div>
   </section>
 
-  <footer id="kontakt">
-    <div class="footer-logo">GAP</div>
-    <div>Kontakt & Anmeldung</div>
-    <div>E-Mail: info@weclosethegap.at</div>
-    <div>© GAP – ZUHÖREN Festival</div>
-    <div>Innsbruck · 24.–26. April 2026</div>
-  </footer>
+<footer id="kontakt">
+  <div class="footer-logo">GAP</div>
+  <div>Kontakt & Anmeldung</div>
+  <div>E-Mail: info@weclosethegap.at</div>
+
+  <div class="partners">
+    <p>In Kooperation mit</p>
+    <div class="partner-logos">
+      <img src="logo1.jpg" alt="Partner 1">
+      <img src="logo2.png" alt="Partner 2">
+      <img src="logo3.png" alt="Partner 3">
+    </div>
+  </div>
+
+  <div>© GAP – ZUHÖREN Festival</div>
+  <div>Innsbruck · 24.–26. April 2026</div>
+</footer>
 
   <script>
     const eventData = {
@@ -648,12 +693,10 @@
         location: "Seniorenheim St. Raphael (Ing.-Etzl Straße 71, Innsbruck)",
         image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
         description: `Du magst Musik? Du hörst gerne zu? Und du erzählst gerne Geschichten aus deinem Leben?
-
 Dann ist diese Veranstaltung genau richtig für dich! Und dieses Mal findet sie an einem ganz besonderen Ort statt. Nämlich im Seniorenheim St. Raphael.
-
-Du bringst 1–2 Lieder mit. Wir hören sie gemeinsam an. Und du erzählst, warum du diese Lieder magst, warum sie wichtig für dich sind und welche Erlebnisse du mit ihnen verbindest.
-
-Eine Veranstaltung zum Lachen, Weinen und sich besser Kennenlernen.`
+<strong>Deine Musik, deine Geschichte</strong> funktioniert ganz einfach. Du bringst 1-2 Lieder mit. Wir hören sie gemeinsam an. Und du erzählst, warum du diese Lieder magst. Warum sie wichtig für dich sind. Und welche Erlebnisse du mit ihnen verbindest.
+Eine Veranstaltung zum Lachen, Weinen und sich besser Kennenlernen.
+`
       },
 
       tisch: {
@@ -662,13 +705,14 @@ Eine Veranstaltung zum Lachen, Weinen und sich besser Kennenlernen.`
         time: "12:00 – 13:30 Uhr",
         location: "Restaurant Arabisk (Dreiheiligenstraße 33, Innsbruck)",
         image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
-        description: `Gemeinsam Pause machen und sich austauschen? Über deinen Berufswunsch? Erfahrungen und Herausforderungen im Job?
+        description: `Gemeinsam Pause machen und sich austauschen? Über deinen Berufswunsch? Erfahrungen und Herausforderungen im Job? Klingt gut? Dann bitten wir auch dich zu Tisch. 
 
-Dann bitten wir auch dich zu Tisch.
-
-Beim gemeinsamen Mittagessen kannst du Fragen stellen, zuhören, essen und genießen. Das Essen geht aufs Haus.
-
-Bitte melde dich zu dieser Veranstaltung unter info@weclosethegap.at an.`
+Beim gemeinsamen Mittagessen mit Judith Zimmermann kannst du alles fragen, was du schon immer über den Beruf … und die Tätigkeit einer Betriebswirtin wissen wolltest. Ganz persönlich und direkt. Und dann: einfach mal zuhören, essen und genießen. Das Essen geht nämlich aufs Haus.
+Bitte melde dich zu dieser Veranstaltung unter <a href="mailto:info@weclosethegap.at"><strong>info@weclosethegap.at</strong></a> an.
+<br>
+<strong>Zu Judith Zimmermann:</strong><br>
+Judith Zimmermann ist seit 2002 Musiktherapeutin und arbeitet seitdem mit Kindern, Jugendlichen, psychisch erkrankten Erwachsenen oder auch auf der Geriatrie. Aktuell ist sie im Bereich psychosoziale Rehabilitation in der pro mente Reha Sonnenpark Lans tätig. Seit 2022 ist sie dort auch Betriebsrätin.
+`
       },
 
       literatur: {
@@ -679,46 +723,47 @@ Bitte melde dich zu dieser Veranstaltung unter info@weclosethegap.at an.`
         image: "let.jpeg",
         description: `Lesung mit Sasha (Oleksandra) Lavrenchuk und Hamed Abboud.
 
-Eine Person muss ihre Heimat verlassen. Was nimmt sie mit? Erinnerungen und Erlebnisse, Gefühle und Gedanken, Hoffnung und Angst. Und ihre Sprache. Wie aber klingt diese in einem anderen Land? In einem Land, in dem niemand etwas zu verstehen scheint. Oder doch?
-Gemeinsam mit den Autor:innen Oleksandra Lavrenchuk und Hamed Abboud möchten wir das herausfinden. In ihren literarischen Texten geht es um all das, was Heimat und Migration bedeutet. Auf und außerhalb der jeweiligen Muttersprache.
-Die Lesung findet auf Deutsch, Ukrainisch und Arabisch statt.
-Zu den Autor:innnen:
-Sasha (Oleksandra) Lavrenchuk wurde1982 in Kyijw (Ukraine) geboren. Seit 2022 lebt sie mit ihren zwei Kindern in München. Seit ihrem vierten Geburtstag schreibt sie Gedichte und hat mehrere Gedichtbände veröffentlicht.  Sie arbeitete als Redakteurin beim Fernsehen, war Mitglied von Seriendrehbuch-Teams und ist zudem als Übersetzerin tätig.   
-Hamed Abboudwurde 1987 in Deir Ez-Zor (Syrien) geboren. 2012 musste er aus Syrien fliehen und kam 2014 nach Zwischenstopps in Ägypten, Dubai und der Türkei in Österreich an. Seit 2005 veröffentlicht er regelmäßig Texte in Zeitschriften und Zeitungen. 2012 erschien sein erster Gedichtband.
+Eine Person muss ihre Heimat verlassen. Was nimmt sie mit? Erinnerungen und Erlebnisse, Gefühle und Gedanken, Hoffnung und Angst. Und ihre Sprache. Wie aber klingt diese in einem anderen Land? In einem Land, in dem niemand etwas zu verstehen scheint. Oder doch?<br>
+Gemeinsam mit den <strong>Autor:innen Sasha Lavrenchuk und Hamed Abboud</strong> möchten wir das herausfinden. In ihren literarischen Texten geht es um all das, was Heimat und Migration bedeutet. Auf und außerhalb der jeweiligen Muttersprache.
+<br><strong>Die Lesung findet auf Deutsch, Ukrainisch und Arabisch statt.</strong><br><br>
+<strong>Zu den Autor:innnen:</strong><br>
+<br>
+<strong>Sasha (Oleksandra) Lavrenchuk</strong> wurde1982 in Kyijw (Ukraine) geboren. Seit 2022 lebt sie mit ihren zwei Kindern in München. Seit ihrem vierten Geburtstag schreibt sie Gedichte und hat mehrere Gedichtbände veröffentlicht.  Sie arbeitete als Redakteurin beim Fernsehen, war Mitglied von Seriendrehbuch-Teams und ist zudem als Übersetzerin tätig.<br>   
+<strong>Hamed Abboud</strong> wurde 1987 in Deir Ez-Zor (Syrien) geboren. 2012 musste er aus Syrien fliehen und kam 2014 nach Zwischenstopps in Ägypten, Dubai und der Türkei in Österreich an. Seit 2005 veröffentlicht er regelmäßig Texte in Zeitschriften und Zeitungen. 2012 erschien sein erster Gedichtband.
 https://www.hamedabboud.at/
+
 `
       },
 
       baenke: {
         day: "Samstag, 25. April 2026",
-        title: "Setz dich zu mir. Bänke zum Zuhören.",
+        title: "Setz dich zu mir.",
         time: "10:30 – 12:30 Uhr",
         location: "Überall in der Stadt",
         image: "banke.jpeg",
-        description: `Bänke laden zum Verweilen ein. Und zur gemeinsamen Unterhaltung.
-
-Wieso nicht mal mit einer unbekannten Person plaudern oder ihr dein Herz ausschütten?
-
-Passant:innen und alle Personen mit Redebedarf finden unsere Bänke zum Zuhören an verschiedenen Plätzen in der Stadt.
-
-Einfach vorbeikommen, hinsetzen und losreden.`
+        description: `Bänke laden zum Verweilen ein. Und zur gemeinsamen Unterhaltung. Wieso nicht mal mit einer unbekannten Person plaudern oder ihr dein Herz ausschütten? Einen gemeinsamen Moment der Zweisamkeit im Stadtleben schaffen? Oder vielleicht einfach nur zusammen die Sonne genießen?
+Passant:innen und alle Personen mit Redebedarf finden unsere Bänke zum Zuhören an folgenden Plätzen: ….
+<br><strong>
+Einfach vorbeikommen, hinsetzten und los reden.
+</strong>`
       },
 
       "deep-listening": {
         day: "Samstag, 25. April 2026",
-        title: "Deep Listening Workshop mit Nina Jukić",
+        title: "Deep Listening Workshop",
         time: "16:00 – 18:30 Uhr",
         location: "Turnhalle Mittelschule Kettenbrücke (Falkstraße 28, Innsbruck)",
         image: "de.jpg",
-        description: `Deep Listening bedeutet hören und zuzuhören – mit dem ganzen Körper. Alleine und gemeinsam.
+        description: `Erfunden wurde Deep Listening von der Musikerin und Komponistin Pauline Oliveros. In diesem Workshop lernst du ihre Philosophie, Meditationen und Übungen kennen. Sie sind einfach und auch im Alltag umsetzbar, sie reichen vom Einsatz der eigenen Stimme und des eigenen Körpers hin zum gemeinsamen Hören und Zuhören. Und fördern so Gemeinschaft, Kreativität und persönliches Wachstum.
 
-In diesem Workshop lernst du die Philosophie, Meditationen und Übungen von Pauline Oliveros kennen.
+Vorkenntnisse sind nicht notwendigen. <br>
 
-Sie fördern Gemeinschaft, Kreativität und persönliches Wachstum.
-
-Vorkenntnisse sind nicht notwendig.
-
-Bitte melde dich unter info@weclosethegap.at an.`
+Bitte melde dich zu dieser Veranstaltung unter <a href="mailto:info@weclosethegap.at"><strong>info@weclosethegap.at</strong></a> an.<br>Die Plätze sind begrenzt.
+Der Workshop findet auf Englisch statt. Bei Bedarf ist eine Übersetzung auf Deutsch und Kroatisch möglich. Falls du dir das wünschst, lass es uns bitte wissen.
+<br><strong>Über Nina Jukić:</strong><br>
+Nina Jukić ist Komponistin, Sound Artist, Sängerin, Musikpädagogin und zertifizierte Deep Listening Workshop-Leiterin. Sie lebt und arbeitet in Wien. 
+Mehr Infos unter: <a href="https://www.likepearlsonastring.com/about" target="_blank">https://www.likepearlsonastring.com/about</a>
+`
       },
 
       "slow-dating": {
@@ -727,13 +772,10 @@ Bitte melde dich unter info@weclosethegap.at an.`
         time: "19:00 – 21:00 Uhr",
         location: "Café Lotta (Hallerstraße 1, Innsbruck)",
         image:"slow.jpg",
-        description: `Erinnerst du dich noch an den Moment, als du einen besonderen Menschen kennengelernt hast?
-
-Dann komm zu unserer Slow Dating Night.
-
-Mithilfe von Fragen machen wir dich und dein Gegenüber miteinander bekannt. Ruhig, entspannt und ohne Handy zwischen euch.
-
-Alle sind willkommen. Spontan vorbeikommen geht immer. Trotzdem bitten wir aus organisatorischen Gründen um Anmeldung unter info@weclosethegap.at.`
+        description: `EErinnerst du dich noch? An den Moment, als du diesen tollen Menschen kennengelernt hast? An den Ort, die Blicke, den Geruch, die Stimmung? An die Neugier und die Freude auf diese Person? Weißt du noch, wie aufregend so ein Kennenlernen sein kann?
+Nein? Dann komm zu unserer Slow Dating Night. Mithilfe von Fragen machen wir dich und dein Gegenüber miteinander bekannt. Ruhig, ganz entspannt und ohne Handy zwischen euch.<br> Und wer weiß? Vielleicht funkt es ja trotzdem.
+Alle sind willkommen. Spontan vorbeikommen geht immer. Trotzdem bitten wir aus organisatorischen Gründen um Anmeldung unter <a href="mailto:info@weclosethegap.at"><strong>info@weclosethegap.at</strong></a>.
+`
       },
 
       "dawn-chorus": {
@@ -741,14 +783,14 @@ Alle sind willkommen. Spontan vorbeikommen geht immer. Trotzdem bitten wir aus o
         title: "International Dawn Chorus Day",
         time: "Eine Stunde vor Sonnenaufgang",
         location: "Innsbruck (Treffpunkt wird noch bekannt gegeben)",
-        image: "vogel.jpeg",
-        description: `Naturliebhaber:innen kennen und lieben den International Dawn Chorus Day.
-
-An diesem Tag treffen sich Menschen auf der ganzen Welt, um gemeinsam dem Gesang der Vögel zu lauschen.
-
-Gemeinsam mit dem Experten Eberhard Steiner erkunden wir akustisch die Stadt, hören den Vögeln zu und lauschen ihren Symphonien.
-
-Bitte melde dich unter info@weclosethegap.at an.`
+        image: "vogl.jpg",
+        description: `Naturliebhaber:innen kennen und lieben ihn – den jährlich stattfindenden International Dawn Chorus Day. An diesem Tag treffen sich Menschen auf der ganzen Welt, um gemeinsam dem Gesang der Vögel zu lauschen. Und das bereits vor Sonnenaufgang – denn dann zwitschern, trällern und pfeifen Vögel am meisten.
+Dieses Jahr veranstalten wir diesen besonderen Tag zum ersten Mal auch in Innsbruck. Eine Woche früher als geplant, aber immerhin.
+Gemeinsam mit dem Experten Eberhard Steiner erkunden wir akustisch die Stadt, hören den Vögeln zu und uns ihre Symphonien an. Vorwissen ist keines notwendig. Nur Ruhe, offene Ohren, warme Kleidung und Getränke. Für alles weitere sorgt die Natur.
+Bitte melde dich zu dieser Veranstaltung unter <a href="mailto:info@weclosethegap.at"><strong>info@weclosethegap.at</strong></a> an.<br><br>
+<strong>Zu Eberhard Steiner:</strong><br>
+Eberhard Steiner ist Biologe und Mykologe und fasziniert davon, wie viel Leben sich auch in einer Stadt wie Innsbruck finden lässt. Es gilt, nur genau hinzusehen. Oder eben hinzuhören.
+`
       },
 
       "b-side-prayer": {
@@ -757,13 +799,15 @@ Bitte melde dich unter info@weclosethegap.at an.`
         time: "Bis 14:00 Uhr",
         location: "Citykirche / Spitalskirche zum Heiligen Geist (Maria-Theresien-Straße 2, Innsbruck)",
         image: "Bside.jpeg",
-        description: `Wie klingt es, wenn Menschen im Großstadtgetümmel laut über ihr Leben nachdenken?
-
-B Side Prayer verbindet Geschichten, Dankbarkeit, Zweifel, Stadtgeräusche und Musik.
-
-Ein Moment zum Hin- und Zuhören, zum Still- und Innehalten.
-
-Die Werke der in New York lebenden Komponistin Đurđija Vučinić laden zum bewussten Hören ein.`
+        description: `Wie klingt es, wenn Menschen im Großstadtgetümmel laut über ihr Leben nachdenken? Wenn sich ihre Geschichten, ihre Dankbarkeit und ihre Zweifel mit den Geräuschen der Stadt vermischen? Und wenn all das mit Musik untermalt wird? Was hören wir dann?
+Neugierig geworden? Dann schau vorbei und hör die Werke der in New York lebenden Komponistin <strong>Đurđija Vučinić</strong> an. Ein Moment zum Hin- und Zuhören, zum Still- und Innehalten.
+<br><br>
+<strong>B Side Prayer ist auch am 24.April von 08:00-17:00 Uhr in der Citykirche Innsbruck zu hören.</strong><br><br>
+<strong>Zur Komponistin:</strong><br>
+Die Komponistin und Musikwissenschaftlerin <strong>Đurđija Vučinić</strong> verbindet in ihrer Arbeit klassische Musik mit experimentellen Ansätzen. In ihren Werken verwendet sie Aufnahmen aus dem städtischen Leben und Gesprächsfragmente, die sie in Kompositionen und Installationen verwandelt. 
+Đurđija Vučinić lebt und arbeitet seit über einem Jahrzehnt in New York.
+Mehr Infos unter: <a href="https://www.durdijavu.com/" target="_blank">https://www.durdijavu.com/</a>
+`
       },
 
       "gemeinsames-gehen": {
@@ -772,13 +816,11 @@ Die Werke der in New York lebenden Komponistin Đurđija Vučinić laden zum bew
         time: "14:00 – 16:00 Uhr",
         location: "Treffpunkt: Vorplatz Unibibliothek",
         image: "spaz.jpg",
-        description: `Allein gehen kann jeder. Gemeinsames Gehen ist aber viel schöner.
+        description: `Viel zu oft müssen wir Teile des Weges allein gehen. Viel zu oft fühlen wir dabei Langeweile, Angst oder Einsamkeit. Auch deshalb möchten wir gemeinsam gehen. 
 
-Ob still und leise oder laut und lustig – wir gehen auf jeden Fall.
-
-Eine Runde durch Innsbruck. Für jeden Menschen machbar. Barrierefrei und ohne viele Ampeln.
-
-Die Veranstaltung richtet sich an Frauen*. Hunde und Kinder sind willkommen.`
+Still und leise oder laut und lustig. Ganz egal wie. Wir gehen auf jeden Fall. Eine Runde durch Innsbruck. <strong>Barrierefrei</strong> und ohne viele Ampel. Denn nichts kann uns stoppen. 
+<strong>Die Veranstaltung richtet sich an Frauen*</strong>. Hunde und Kinder sind willkommen, bitte gerne mitbringen.
+`
       }
     };
 
@@ -819,7 +861,7 @@ Die Veranstaltung richtet sich an Frauen*. Hunde und Kinder sind willkommen.`
       detailLocation.textContent = event.location;
       detailImage.src = event.image;
       detailImage.alt = event.title;
-      detailDescription.textContent = event.description;
+      detailDescription.innerHTML = event.description;
 
       programm.classList.add("hidden");
       about.classList.add("hidden");
